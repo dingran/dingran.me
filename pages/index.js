@@ -12,10 +12,13 @@ import {
   HStack,
   Spacer,
 } from '@chakra-ui/react';
+import { useMediaQuery } from '@chakra-ui/react';
 
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function Home({ children }) {
+  const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
+
   return (
     <Box
       id='outer-header'
@@ -26,7 +29,15 @@ export default function Home({ children }) {
       p={5}
       w='100%'
     >
-      <Box id='inner' padding='0' margin='0 auto' width='100%' maxW='1040px'>
+      <Box
+        id='inner'
+        padding='0'
+        margin='0 auto'
+        width='100%'
+        maxW='1040px'
+        overflow='hidden'
+        whiteSpace='nowrap'
+      >
         <Box id='left'>
           <HStack spacing={8}>
             <Box id='logo' fontWeight='bold'>
@@ -37,57 +48,31 @@ export default function Home({ children }) {
               textTransform='uppercase'
               opacity={0.8}
               fontSize='sm'
+              isTruncated
             >
-              <Box>About</Box>
-              <Box>Using Ghost</Box>
-              <Box>Machine Learning</Box>
-              <Box>Career</Box>
-              <Box>Projects</Box>
+              <NextLink href='/about'>About</NextLink>
+              <NextLink href='/about'>Using Ghost</NextLink>
+              <NextLink href='/about'>Machine Learning</NextLink>
+              <NextLink href='/about'>Career</NextLink>
+              <NextLink href='/about'>Projects</NextLink>
             </HStack>
-
-            <Spacer></Spacer>
-            <HStack
-              spacing={6}
-              textTransform='uppercase'
-              opacity={0.8}
-              fontSize='sm'
-            ></HStack>
+            <Spacer />
+            <HStack spacing={6}></HStack>
             <Link color='white' opacity={0.8}>
               <FaTwitter />
             </Link>
             <Link color='white' opacity={0.8}>
               <FaLinkedin />
             </Link>
-            <Button size='xs' variant='outline' opacity={0.8}>
-              Subscribe
-            </Button>
+            {isLargerThan900 ? (
+              <Button size='xs' variant='outline' opacity={0.8}>
+                Subscribe
+              </Button>
+            ) : (
+              <></>
+            )}
           </HStack>
-          {/* <Box id='primary-nav'>
-            <ul class='nav'>
-              <li class='nav-about'>
-                <a href='https://www.dingran.me/about/'>About</a>
-              </li>
-              <li class='nav-using-ghost'>
-                <a href='https://www.dingran.me/tag/using-ghost/'>
-                  Using Ghost
-                </a>
-              </li>
-              <li class='nav-machine-learning'>
-                <a href='https://www.dingran.me/tag/machine-learning/'>
-                  Machine Learning
-                </a>
-              </li>
-              <li class='nav-career'>
-                <a href='https://www.dingran.me/tag/career/'>Career</a>
-              </li>
-              <li class='nav-projects'>
-                <a href='https://www.dingran.me/tag/projects/'>Projects</a>
-              </li>
-            </ul>
-          </Box> */}
         </Box>
-
-        <Box id='right'></Box>
       </Box>
     </Box>
   );
