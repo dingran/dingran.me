@@ -16,6 +16,16 @@ import { useMediaQuery } from '@chakra-ui/react';
 
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
+const FancyLink = ({ url, children }) => {
+  return (
+    <NextLink href={url} passHref>
+      <Link opacity={0.8} _hover={{ opacity: '1.0' }}>
+        {children}
+      </Link>
+    </NextLink>
+  );
+};
+
 export default function Home({ children }) {
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
 
@@ -26,7 +36,8 @@ export default function Home({ children }) {
       color='white'
       zIndex='1000'
       position='fixed'
-      p={5}
+      py={5}
+      px={10}
       w='100%'
     >
       <Box
@@ -46,26 +57,33 @@ export default function Home({ children }) {
             <HStack
               spacing={6}
               textTransform='uppercase'
-              opacity={0.8}
-              fontSize='sm'
+              fontSize='13px'
+              fontWeight='semibold'
               isTruncated
             >
-              <NextLink href='/about'>About</NextLink>
-              <NextLink href='/about'>Using Ghost</NextLink>
-              <NextLink href='/about'>Machine Learning</NextLink>
-              <NextLink href='/about'>Career</NextLink>
-              <NextLink href='/about'>Projects</NextLink>
+              <FancyLink url='/about'>About</FancyLink>
+              <FancyLink url='/about'>Using Ghost</FancyLink>
+              <FancyLink url='/about'>Machine Learning</FancyLink>
+              <FancyLink url='/about'>Career</FancyLink>
+              <FancyLink url='/about'>Project</FancyLink>
             </HStack>
             <Spacer />
             <HStack spacing={6}></HStack>
-            <Link color='white' opacity={0.8}>
+
+            <Link opacity={0.8} _hover={{ opacity: '1.0' }}>
               <FaTwitter />
             </Link>
-            <Link color='white' opacity={0.8}>
+
+            <Link opacity={0.8} _hover={{ opacity: '1.0' }}>
               <FaLinkedin />
             </Link>
             {isLargerThan900 ? (
-              <Button size='xs' variant='outline' opacity={0.8}>
+              <Button
+                size='xs'
+                variant='outline'
+                opacity={0.8}
+                _hover={{ opacity: 1.0 }}
+              >
                 Subscribe
               </Button>
             ) : (
