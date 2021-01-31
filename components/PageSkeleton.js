@@ -1,6 +1,8 @@
+/* this component should take care of header, nav and footer for all/most pages */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import HomeNav from '@/components/HomeNav';
+import Nav from '@/components/Nav';
+import { Box, Flex } from '@chakra-ui/react';
 
 export default function PageSkeleton(props) {
   const { children, ...customMeta } = props;
@@ -37,9 +39,13 @@ export default function PageSkeleton(props) {
           <meta property='article:published_time' content={meta.date} />
         )}
       </Head>
-      <HomeNav />
-      {children}
-      {/* TODO: add footer */}
+      <Box className='site-wrapper'>
+        <Nav />
+        <Box as='main' mt='64px' className='site-main outer'>
+          <Box className='inner'>{children}</Box>
+        </Box>
+        {/* TODO: add footer */}
+      </Box>
     </>
   );
 }

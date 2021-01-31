@@ -6,7 +6,9 @@
   transition: opacity 0.35s ease-in-out;
 }
 
-.nav a:hover {
+.logo a:hover,
+.navLeft a:hover,
+.navRight a:hover {
   text-decoration: none;
   opacity: 1;
 }

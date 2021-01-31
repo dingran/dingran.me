@@ -2,8 +2,9 @@ import NextLink from 'next/link';
 import { Box, Button, Flex, Link, HStack, Spacer } from '@chakra-ui/react';
 import { useMediaQuery } from '@chakra-ui/react';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa';
+import classNames from 'classnames';
 
-import styles from '@/styles/HomeNav.module.css';
+import styles from '@/styles/Nav.module.css';
 
 const WrappedLink = ({ url, children }) => {
   return (
@@ -14,26 +15,26 @@ const WrappedLink = ({ url, children }) => {
 };
 
 export default function HomeNav({ children }) {
-  const [largeScreen] = useMediaQuery('(min-width: 800px)');
+  const [largeScreen] = useMediaQuery('(min-width: 500px)');
 
   return (
     <Box
+      as='header'
       bg='rgba(10,11,12)' // based on Casper, #0a0b0c
       color='white' // text color
-      zIndex='1000' // stay in front
       position='fixed' // fixed at top
-      w='100%' // fill the whole screen
-      className={styles.nav}
+      top='0'
+      left='0' // fill full width
+      right='0' // fill full width
+      zIndex='1000'
+      className='outer'
     >
       <Flex
-        id='inner' // is using id the righ way to note to myself what's what?
-        maxW='1040px' // Chakra's shorthabd for max-width
-        m='auto' // centering
-        px={10} // leave some room left and right
         whiteSpace='nowrap' // ensure signle line
         height='64px' // specify height, in combination with overflow='hidden' for hiding scroll bar...
         overflowY='hidden' // hide the ugly x scroll bar, see below
         alignItems='flex-start' //alignt at the start on the cross axis, i.e. align at top
+        className='inner'
       >
         <HStack
           id='left'
@@ -42,7 +43,7 @@ export default function HomeNav({ children }) {
           pb='80px' // so the the x scrollbar is outside of the 64px height
           pt='20px' // padding from top to center this
         >
-          <Box id='logo' fontWeight='bold'>
+          <Box id='logo' fontWeight='bold' className={styles.logo}>
             <WrappedLink url='/'>Ran Ding</WrappedLink>
           </Box>
           <HStack
@@ -73,19 +74,25 @@ export default function HomeNav({ children }) {
           }}
           className={styles.navRight} // adding the :before:hover directly here isn't straigtforward, thus using css module
         >
-          <Link>
-            <FaTwitter />
-          </Link>
-          <Link>
-            <FaLinkedin />
-          </Link>
-          <Button
-            size='xs'
-            variant='outline'
-            _hover={{ opacity: 1 }} //this overwrites the default hover effect which is ugly for outline style button on dark background
-          >
-            Subscribe
-          </Button>
+          {largeScreen ? (
+            <>
+              <Link>
+                <FaTwitter />
+              </Link>
+              <Link>
+                <FaLinkedin />
+              </Link>
+              <Button
+                size='xs'
+                variant='outline'
+                _hover={{ opacity: 1 }} //this overwrites the default hover effect which is ugly for outline style button on dark background
+              >
+                Subscribe
+              </Button>
+            </>
+          ) : (
+            <></>
+          )}
         </HStack>
       </Flex>
     </Box>
