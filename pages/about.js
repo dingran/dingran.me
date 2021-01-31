@@ -1,3 +1,8 @@
+import PageSkeleton from '@/components/PageSkeleton';
 export default function About() {
-  return <h1>About</h1>;
+  return (
+    <PageSkeleton>
+      <h1>About</h1>
+    </PageSkeleton>
+  );
 }

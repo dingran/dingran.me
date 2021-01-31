@@ -23,6 +23,7 @@ export default function HomeNav({ children }) {
       zIndex='1000' // stay in front
       position='fixed' // fixed at top
       w='100%' // fill the whole screen
+      className={styles.nav}
     >
       <Flex
         id='inner' // is using id the righ way to note to myself what's what?
@@ -42,7 +43,7 @@ export default function HomeNav({ children }) {
           pt='20px' // padding from top to center this
         >
           <Box id='logo' fontWeight='bold'>
-            Ran Ding
+            <WrappedLink url='/'>Ran Ding</WrappedLink>
           </Box>
           <HStack
             id='nav-links'
@@ -53,10 +54,8 @@ export default function HomeNav({ children }) {
             className={styles.navLeft} // adding the :before:hover directly here isn't straigtforward, thus using css module
           >
             <WrappedLink url='/about'>About</WrappedLink>
-            <WrappedLink url='/about'>Using Ghost</WrappedLink>
-            <WrappedLink url='/about'>Machine Learning</WrappedLink>
-            <WrappedLink url='/about'>Career</WrappedLink>
-            <WrappedLink url='/about'>Projects</WrappedLink>
+            <WrappedLink url='/blog'>Blog</WrappedLink>
+            <WrappedLink url='/projects'>Projects</WrappedLink>
           </HStack>
         </HStack>
         <Spacer /> {/* fill in the horizontal space between the two HStacks*/}
