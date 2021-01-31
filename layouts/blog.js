@@ -55,7 +55,7 @@ export default function BlogLayout({ children, frontMatter }) {
               fontWeight='300'
               fontFamily='Georgia, serif'
             >
-              Automatically add preview / teaser content for Member-Only posts
+              {frontMatter.summary}
               in Ghost.
             </Heading>
           </Box>
@@ -81,34 +81,16 @@ export default function BlogLayout({ children, frontMatter }) {
                   color='gray.400'
                   style={{ textTransform: 'uppercase' }}
                 >
-                  24 Jan 2021 {` • `} 6 Min Read
+                  {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+                  {` • `} {frontMatter.readingTime.text}
                 </Text>
               </Box>
             </Flex>
           </Flex>
         </Box>
-        <div>
-          <div>
-            <Image
-              alt='Lee Robinson'
-              height={24}
-              width={24}
-              src='/avatar.jpg'
-              className='rounded-full'
-            />
-            <p>
-              {frontMatter.by}
-              {'Lee Robinson / '}
-              {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-            </p>
-          </div>
-          <p>
-            {frontMatter.readingTime.text}
-            {` • `}
-            {/* <ViewCounter slug={frontMatter.slug} /> */}
-          </p>
-        </div>
-        <div>{children}</div>
+        <Box className='post-full-content'>
+          <div>{children}</div>
+        </Box>
         <div>{/* <Subscribe /> */}</div>
         <div>
           <a
