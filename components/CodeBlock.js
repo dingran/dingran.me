@@ -2,7 +2,6 @@ import React from 'react';
 import rangeParser from 'parse-numeric-range'; //https://prince.dev/highlight-with-react
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
-import { Pre, Line, LineNo, LineContent } from './codestyles';
 
 // Create a closure that determines if we have
 // to highlight the given index
@@ -25,28 +24,28 @@ export default function Code({ children, className, metastring }) {
     <Highlight
       {...defaultProps}
       theme={theme}
-      code={children}
+      code={children.trim()} // without trim somehow there is alwasy an empty line
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={{ ...style, padding: '20px' }}>
+        <pre
+          className={className}
+          style={{ ...style, padding: '20px', overflow: 'auto' }}
+        >
           {tokens.map((line, index) => {
             const lineProps = getLineProps({ line, key: index });
             if (shouldHighlightLine(index)) {
               lineProps.className = `${lineProps.className} highlight-line`;
             }
             return (
-              <Line key={index} {...lineProps}>
-                <LineNo>{index + 1}</LineNo>
-                <LineContent>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </LineContent>
-              </Line>
+              <div key={index} {...lineProps}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
             );
           })}
-        </Pre>
+        </pre>
       )}
     </Highlight>
   );
