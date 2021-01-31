@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Code from '@/components/Code';
+import CodeBlock from '@/components/CodeBlock';
+import { Code } from '@chakra-ui/react';
 
 // import ProsCard from '@/components/ProsCard';
 // import ConsCard from '@/components/ConsCard';
@@ -28,7 +29,9 @@ const CustomLink = (props) => {
 const MDXComponents = {
   Image,
   a: CustomLink,
-  code: Code,
+  pre: (props) => <div {...props} />,
+  code: CodeBlock,
+  inlineCode: Code,
   // Analytics,
   // ConsCard,
   // Gumroad,
