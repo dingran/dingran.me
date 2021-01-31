@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import PageSkeleton from '@/components/PageSkeleton';
-// import Subscribe from '@/components/Subscribe';
+// import Subscribe from '@/components/subscribe';
 // import ViewCounter from '@/components/ViewCounter';
 
 const editUrl = (slug) =>
