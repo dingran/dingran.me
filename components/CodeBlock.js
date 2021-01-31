@@ -30,7 +30,12 @@ export default function Code({ children, className, metastring }) {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={className}
-          style={{ ...style, padding: '20px', overflow: 'auto' }}
+          style={{
+            ...style,
+            padding: '20px',
+            overflow: 'auto',
+            fontSize: '14px',
+          }}
         >
           {tokens.map((line, index) => {
             const lineProps = getLineProps({ line, key: index });
