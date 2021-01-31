@@ -1,4 +1,16 @@
 import Image from 'next/image';
+import {
+  Avatar,
+  Box,
+  Heading,
+  Tag,
+  Divider,
+  Grid,
+  GridItem,
+  Link,
+  Flex,
+  Text,
+} from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';
 
 import PageSkeleton from '@/components/PageSkeleton';
@@ -21,12 +33,62 @@ export default function BlogLayout({ children, frontMatter }) {
       date={new Date(frontMatter.publishedAt).toISOString()}
       type='article'
     >
-      <article className='flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full'>
-        <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
-          {frontMatter.title}
-        </h1>
-        <div className='flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8'>
-          <div className='flex items-center'>
+      <article>
+        <Box as='header' px='11vw' py='55px'>
+          <Link
+            color='blue.400'
+            fontWeight='600'
+            fontSize='13px'
+            textTransform='uppercase'
+          >
+            Test
+          </Link>
+          <Box mb='.2em'>
+            <Heading as='h1' size='2xl'>
+              {frontMatter.title}
+            </Heading>
+          </Box>
+          <Box mt='20px'>
+            <Heading
+              color='gray.500'
+              size='md'
+              fontWeight='300'
+              fontFamily='Georgia, serif'
+            >
+              Automatically add preview / teaser content for Member-Only posts
+              in Ghost.
+            </Heading>
+          </Box>
+          <Flex
+            justifyContent='space-between'
+            pt='15px'
+            mt='35px'
+            borderTopWidth='1px'
+            borderTopColor='rgb(228, 234, 237)'
+          >
+            <Flex flexGrow='1' alignItems='center'>
+              <Box ml='4px' pr='12px'>
+                <Box m='0 auto'>
+                  <Avatar size='sm'></Avatar>
+                </Box>
+              </Box>
+              <Box mt='2px'>
+                <Heading as='h4' size='xs' mb='3px'>
+                  Ran Ding
+                </Heading>
+                <Text
+                  fontSize='xs'
+                  color='gray.400'
+                  style={{ textTransform: 'uppercase' }}
+                >
+                  24 Jan 2021 {` • `} 6 Min Read
+                </Text>
+              </Box>
+            </Flex>
+          </Flex>
+        </Box>
+        <div>
+          <div>
             <Image
               alt='Lee Robinson'
               height={24}
@@ -34,23 +96,21 @@ export default function BlogLayout({ children, frontMatter }) {
               src='/avatar.jpg'
               className='rounded-full'
             />
-            <p className='text-sm text-gray-700 dark:text-gray-300 ml-2'>
+            <p>
               {frontMatter.by}
               {'Lee Robinson / '}
               {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
             </p>
           </div>
-          <p className='text-sm text-gray-500 min-w-32 mt-2 md:mt-0'>
+          <p>
             {frontMatter.readingTime.text}
             {` • `}
             {/* <ViewCounter slug={frontMatter.slug} /> */}
           </p>
         </div>
-        <div className='prose dark:prose-dark max-w-none w-full'>
-          {children}
-        </div>
-        <div className='mt-8'>{/* <Subscribe /> */}</div>
-        <div className='text-sm text-gray-700 dark:text-gray-300'>
+        <div>{children}</div>
+        <div>{/* <Subscribe /> */}</div>
+        <div>
           <a
             href={discussUrl(frontMatter.slug)}
             target='_blank'
