@@ -36,20 +36,28 @@ export default function Home({ children }) {
       color='white'
       zIndex='1000'
       position='fixed'
-      py={5}
-      px={10}
       w='100%'
     >
       <Flex
         id='inner'
-        p='0'
-        m='auto'
         maxW='1040px'
         width='100%'
         overflow='hidden'
+        m='auto'
+        height='64px'
+        px={10}
         whiteSpace='nowrap'
+        alignItems='flex-start'
       >
-        <HStack id='left' spacing={8} isTruncated>
+        <HStack
+          id='left'
+          spacing={8}
+          isTruncated
+          overflowX='auto'
+          overflowY='hidden'
+          pb='80px'
+          pt='20px'
+        >
           <Box id='logo' fontWeight='bold'>
             Ran Ding
           </Box>
@@ -72,17 +80,15 @@ export default function Home({ children }) {
           flexGrow={0}
           flexShrink={1}
           flexBasis='auto'
+          height='64px'
           _before={{
             content: "''",
             position: 'relative',
-            top: 0,
-            left: '-10px',
-            zIndex: 1000,
+            left: '-40px',
+            zIndex: 100,
             width: '40px',
             height: '100%',
-            background: '#0a0b0c',
-            opacity: 0.6,
-            // bgGradient: 'linear( to-l, #0a0b0c,  #ffffff)',
+            bgGradient: 'linear( to-r, rgba(10,11,12, 0),  rgba(10,11,12))',
           }}
         >
           <Link opacity={0.8} _hover={{ opacity: '1.0' }}>
