@@ -1,0 +1,29 @@
+.nav a {
+  position: relative;
+  /* display: block; */
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.nav a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav a:before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  bottom: -4px;
+  left: 0px;
+  height: 1px;
+  background: #fff;
+  opacity: 0.25;
+  transition: all 0.35s ease-in-out;
+}
+
+.nav a:hover:before {
+  right: 0px;
+  opacity: 0.5;
+}

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import styles from '../styles/Nav.module.css';
 import NextLink from 'next/link';
 import {
   Box,
@@ -66,6 +67,7 @@ export default function Home({ children }) {
             textTransform='uppercase'
             fontSize='13px'
             fontWeight='semibold'
+            className={styles.nav}
           >
             <FancyLink url='/about'>About</FancyLink>
             <FancyLink url='/about'>Using Ghost</FancyLink>
