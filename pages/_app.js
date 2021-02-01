@@ -24,9 +24,6 @@ const theme = extendTheme({
       'p, ul, ol, dl, blockquote': {
         mb: '1.0em',
       },
-      p: {
-        textAlign: 'justify',
-      },
       blockquote: {
         px: '1.0em',
         borderLeftColor: 'blue.200',

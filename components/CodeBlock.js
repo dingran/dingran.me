@@ -35,6 +35,7 @@ export default function Code({ children, className, metastring }) {
             padding: '20px',
             overflow: 'auto',
             fontSize: '14px',
+            borderRadius: '5px',
           }}
         >
           {tokens.map((line, index) => {

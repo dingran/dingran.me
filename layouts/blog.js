@@ -44,7 +44,7 @@ export default function BlogLayout({ children, frontMatter }) {
             Test
           </Link>
           <Box mb='.2em'>
-            <Heading as='h1' size='2xl'>
+            <Heading as='h1' size='2xl' mt='0' mb='0'>
               {frontMatter.title}
             </Heading>
           </Box>
@@ -72,11 +72,12 @@ export default function BlogLayout({ children, frontMatter }) {
                 </Box>
               </Box>
               <Box mt='2px'>
-                <Heading as='h4' size='xs' mb='3px'>
+                <Text size='xs' mb='3px'>
                   Ran Ding
-                </Heading>
+                </Text>
                 <Text
                   fontSize='xs'
+                  mb='3px'
                   color='gray.400'
                   style={{ textTransform: 'uppercase' }}
                 >
@@ -87,9 +88,7 @@ export default function BlogLayout({ children, frontMatter }) {
             </Flex>
           </Flex>
         </Box>
-        <Box className='post-full-content'>
-          <div>{children}</div>
-        </Box>
+        <Box className='post-full-content'>{children}</Box>
         <div>{/* <Subscribe /> */}</div>
         <div>
           <a
