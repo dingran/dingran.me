@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import CodeBlock from '@/components/CodeBlock';
-import { Code } from '@chakra-ui/react';
+import { Code, Heading } from '@chakra-ui/react';
 
 // import ProsCard from '@/components/ProsCard';
 // import ConsCard from '@/components/ConsCard';
@@ -32,6 +32,12 @@ const MDXComponents = {
   pre: (props) => <div {...props} />,
   code: CodeBlock,
   inlineCode: Code,
+  h1: (props) => <Heading as='h1' size='2xl' {...props} />,
+  h2: (props) => <Heading as='h2' size='xl' {...props} />,
+  h3: (props) => <Heading as='h3' size='lg' {...props} />,
+  h4: (props) => <Heading as='h4' size='md' {...props} />,
+  h5: (props) => <Heading as='h5' size='sm' {...props} />,
+  h6: (props) => <Heading as='h5' size='xs' {...props} />,
   // Analytics,
   // ConsCard,
   // Gumroad,

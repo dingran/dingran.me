@@ -8,8 +8,13 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
   styles: {
     global: {
-      h2: {
-        color: 'red.400',
+      fonts: {
+        heading: 'Georgia, serif',
+        mono: 'Menlo, monospace',
+      },
+      'h1, h2, h3, h4, h5, h6': {
+        mt: '1.5em',
+        mb: '0.8em',
       },
       'ol, ul': {
         pl: '1.0em',
@@ -17,7 +22,7 @@ const theme = extendTheme({
         listStylePosition: 'inside',
       },
       'p, ul, ol, dl, blockquote': {
-        mb: '1.5em',
+        mb: '1.0em',
       },
       p: {
         textAlign: 'justify',

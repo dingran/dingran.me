@@ -1,0 +1,23 @@
+import PageSkeleton from '@/components/PageSkeleton';
+import BlogLayout from '@/layouts/blog';
+import { Text, Heading } from '@chakra-ui/react';
+export default function About({ children }) {
+  // return <PageSkeleton>{children}</PageSkeleton>;
+  const frontMatter = {
+    title: 'Test',
+    summary: 'this is a test',
+    publishedAt: '2000-01-01',
+    readingTime: { text: '0' },
+  };
+  return <BlogLayout frontMatter={frontMatter}>{children}</BlogLayout>;
+}
+
+# Test
+
+Does this work?
+
+Yes
+
+How about hot reload?
+
+Yes

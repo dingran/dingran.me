@@ -56,7 +56,6 @@ export default function BlogLayout({ children, frontMatter }) {
               fontFamily='Georgia, serif'
             >
               {frontMatter.summary}
-              in Ghost.
             </Heading>
           </Box>
           <Flex
