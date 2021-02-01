@@ -30,6 +30,10 @@ const theme = extendTheme({
         borderLeftWidth: '3px',
         textColor: 'gray.400',
       },
+      ':focus': {
+        boxShadow: 'none !important',
+        // remove blue border https://github.com/chakra-ui/chakra-ui/issues/708#issuecomment-638963019
+      },
     },
   },
 });
