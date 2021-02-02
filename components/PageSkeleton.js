@@ -3,6 +3,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Nav from '@/components/Nav';
 import { Box, Flex } from '@chakra-ui/react';
+import useScript from '@/components/useScript';
+
+/*global MathJax*/
 
 export default function PageSkeleton(props) {
   const { children, ...customMeta } = props;
@@ -14,6 +17,14 @@ export default function PageSkeleton(props) {
     type: 'website',
     ...customMeta,
   };
+
+  useScript(
+    'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+    'mathjax-id',
+    () => {
+      return 1;
+    }
+  );
 
   return (
     <>
@@ -38,6 +49,27 @@ export default function PageSkeleton(props) {
         {meta.date && (
           <meta property='article:published_time' content={meta.date} />
         )}
+        <script>
+          {`(MathJax = {
+              tex: {
+                inlineMath: [
+                  ['$', '$'],
+                  ['\\(', '\\)'],
+                ],
+                tags: 'ams',
+              },
+              svg: {
+                fontCache: 'global',
+              },
+            });`}
+        </script>
+
+        {/*<script
+          type='text/javascript'
+          id='MathJax-script'
+          async
+          src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
+        ></script> */}
       </Head>
       <Box className='site-wrapper'>
         <Nav />
