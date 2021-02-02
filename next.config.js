@@ -1,5 +1,3 @@
-const mathJax = require('rehype-mathjax');
-
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -11,24 +9,7 @@ const withMDX = require('@next/mdx')({
       require('remark-autolink-headings'), //TODO: fix; doesn't actually work, ancher didn't wrap the text
     ],
     // rehypePlugins: [require('rehype-katex')],
-    rehypePlugins: [
-      [
-        mathJax,
-        // {
-        //   tex: {
-        //     inlineMath: [
-        //       ['$', '$'],
-        //       ['\\(', '\\)'],
-        //     ],
-        //     tags: 'ams',
-        //   },
-        //   svg: {
-        //     fontCache: 'global',
-        //   },
-        // },
-      ],
-    ],
-    // this doesn't work due to https://github.com/gatsbyjs/gatsby/issues/25013 and https://github.com/mdx-js/mdx/issues/1148 TODO: update this when mdx 2.0 comes out
+    rehypePlugins: [[require('rehype-mathjax')]],
   },
 });
 module.exports = withMDX({

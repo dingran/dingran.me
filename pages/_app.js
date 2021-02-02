@@ -1,4 +1,5 @@
 import '@/styles/global.css';
+import 'focus-visible/dist/focus-visible';
 import * as React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { MDXProvider } from '@mdx-js/react';
@@ -30,9 +31,8 @@ const theme = extendTheme({
         borderLeftWidth: '3px',
         textColor: 'gray.400',
       },
-      ':focus': {
-        boxShadow: 'none !important',
-        // remove blue border https://github.com/chakra-ui/chakra-ui/issues/708#issuecomment-638963019
+      svg: {
+        display: 'inline',
       },
     },
   },
