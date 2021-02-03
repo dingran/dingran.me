@@ -22,8 +22,12 @@ const CoverImage = (props) => {
       as='figure'
       mt='25px'
       mb='50px'
-      borderRadius='30px'
       sx={{
+        div: {
+          borderRadius: '3px',
+          // Next.js wrapps img with a few divs,
+          // somehow we need to set the styling on the div to get it working
+        },
         img: {
           width: '100%',
           height: 'auto',
