@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 import { Box, Flex } from '@chakra-ui/react';
 
 export default function PageSkeleton(props) {
@@ -50,7 +51,7 @@ export default function PageSkeleton(props) {
         <Box as='main' mt='64px' className='site-main outer'>
           <Box className='inner'>{children}</Box>
         </Box>
-        {/* TODO: add footer */}
+        <Footer />
       </Box>
     </>
   );
