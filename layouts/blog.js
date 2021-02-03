@@ -11,11 +11,18 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import { parseISO, format } from 'date-fns';
+import { parseISO, format, fromUnixTime } from 'date-fns';
 
 import PageSkeleton from '@/components/PageSkeleton';
 // import Subscribe from '@/components/subscribe';
 // import ViewCounter from '@/components/ViewCounter';
+const CoverImage = (props) => {
+  return (
+    <Box as='figure' width='100%' height='auto' maxWidth='1040px'>
+      <Image {...props} />
+    </Box>
+  );
+};
 
 const editUrl = (slug) =>
   `https://github.com/leerob/leerob.io/edit/master/data/blog/${slug}.mdx`;
@@ -27,9 +34,9 @@ const discussUrl = (slug) =>
 export default function BlogLayout({ children, frontMatter }) {
   return (
     <PageSkeleton
-      title={`${frontMatter.title} – Lee Robinson`}
+      title={`${frontMatter.title} – Ran Ding`}
       description={frontMatter.summary}
-      image={`https://leerob.io${frontMatter.image}`}
+      image={`${frontMatter.image}`}
       date={new Date(frontMatter.publishedAt).toISOString()}
       type='article'
     >
@@ -88,6 +95,13 @@ export default function BlogLayout({ children, frontMatter }) {
             </Flex>
           </Flex>
         </Box>
+
+        <CoverImage
+          src={frontMatter.image}
+          alt={frontMatter.title}
+          width={frontMatter.imageWidth}
+          height={frontMatter.imageHeight}
+        />
         <Box className='post-full-content'>{children}</Box>
         <div>{/* <Subscribe /> */}</div>
         <div>

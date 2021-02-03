@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import CodeBlock from '@/components/CodeBlock';
-import { Code, Heading } from '@chakra-ui/react';
+import { Box, Code, Heading } from '@chakra-ui/react';
 
 // import ProsCard from '@/components/ProsCard';
 // import ConsCard from '@/components/ConsCard';
