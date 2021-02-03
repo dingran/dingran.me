@@ -18,7 +18,19 @@ import PageSkeleton from '@/components/PageSkeleton';
 // import ViewCounter from '@/components/ViewCounter';
 const CoverImage = (props) => {
   return (
-    <Box as='figure' width='100%' height='auto' maxWidth='1040px'>
+    <Box
+      as='figure'
+      mt='25px'
+      mb='50px'
+      borderRadius='30px'
+      sx={{
+        img: {
+          width: '100%',
+          height: 'auto',
+          maxWidth: '1040px',
+        },
+      }}
+    >
       <Image {...props} />
     </Box>
   );
