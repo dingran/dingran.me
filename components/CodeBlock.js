@@ -3,6 +3,8 @@ import rangeParser from 'parse-numeric-range'; //https://prince.dev/highlight-wi
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 
+// styling inspired by https://tkdodo.eu/blog/dont-over-use-state
+
 // Create a closure that determines if we have
 // to highlight the given index
 const calculateLinesToHighlight = (meta) => {
@@ -32,19 +34,22 @@ export default function Code({ children, className, metastring }) {
           className={className}
           style={{
             ...style,
-            padding: '20px',
+            padding: '16px 0 16px 0',
             overflow: 'auto',
             fontSize: '14px',
-            borderRadius: '5px',
+            borderBottomLeftRadius: '0.25rem',
+            borderBottomRightRadius: '0.25rem',
           }}
         >
           {tokens.map((line, index) => {
             const lineProps = getLineProps({ line, key: index });
+            let lineNumebrStyleStr = 'line-number-style';
             if (shouldHighlightLine(index)) {
               lineProps.className = `${lineProps.className} highlight-line`;
             }
             return (
               <div key={index} {...lineProps}>
+                <span className={lineNumebrStyleStr}>{index + 1}</span>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
                 ))}

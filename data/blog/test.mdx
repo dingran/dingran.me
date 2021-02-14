@@ -75,19 +75,31 @@ no space between language and filename
 also no space should be there between line ranges
 
 ```js:test.js {2-4,7}
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({ div: '#foo' });
-  }
-}
-
-cosnt a=1;
-
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({ div: '#foo' });
-  }
-}
+import { fetchData } from './api'
+import { computeCategories, getMoreCategories } from './utils'
+const App = () => {
+    const [data, setData] = React.useState(null)
+    const [categories, setCategories] = React.useState([])
+    React.useEffect(() => {
+        async function fetch() {
+            const response = await fetchData()
+            setData(response.data)
+        }
+        fetch()
+    }, [])
+    React.useEffect(() => {
+        if (data) {
+            setCategories(computeCategories(data))
+        }
+    }, [data])
+    return (
+        <>
+            ...
+            <Button onClick={() =>
+              setCategories(getMoreCategories())}>Get more</Button>
+        </>
+    )
+}}
 ```
 
 ## latex
