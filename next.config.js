@@ -6,7 +6,7 @@ const withMDX = require('@next/mdx')({
       require('remark-code-titles'),
       require('remark-capitalize'),
       require('remark-slug'),
-      require('remark-autolink-headings'), //TODO: fix; doesn't actually work, ancher didn't wrap the text
+      [require('remark-autolink-headings'), { behavior: 'wrap' }],
     ],
     // rehypePlugins: [require('rehype-katex')],
     rehypePlugins: [[require('rehype-mathjax')]],
