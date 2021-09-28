@@ -1,7 +1,6 @@
-Dev flow
+# Readme / Dev notes
 
-- `npm run dev` starts dev server
-- deployment tbd
+`npm run dev` starts dev server
 
 About Next.js
 
@@ -13,7 +12,9 @@ About Next.js
 
 About MDX
 
--
+- general stuff
+- LaTex, math
+- Codeblock
 
 About styling
 
@@ -26,3 +27,10 @@ Other file organization stuff
 - `lib`
 - `components`
 - `data`
+
+About deployment on Vercel
+
+Resources
+
+- repo to learn from https://github.com/leerob/leerob.io
+- course https://masteringnextjs.com/
