@@ -8,8 +8,8 @@ const withMDX = require('@next/mdx')({
       require('remark-slug'),
       [require('remark-autolink-headings'), { behavior: 'wrap' }],
     ],
-    // rehypePlugins: [require('rehype-katex')],
-    rehypePlugins: [[require('rehype-mathjax')]],
+    rehypePlugins: [require('rehype-katex')],
+    // rehypePlugins: [require('rehype-mathjax')], //mathjax doesn't seem to work
   },
 });
 module.exports = withMDX({
