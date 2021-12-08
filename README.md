@@ -23,6 +23,8 @@ Note: things are a little messy for mdx, for experimentation purposes
 - in principle if we don't realy on remote data, I can directly write pages under `pages/blog` instead of doing static generation
 - right now (12/5/2021), `remark-math` v3 works fine, but v4 and above has breaking changes that would only work with the v2.rc of mdx-js stuff which works with `@next/mdx` but not `next-mdx-remote` (which still depends on v1.6 of mdx-js)
 
+ref https://nextjs.org/blog/markdown
+
 About styling
 
 - `extendTheme` in `_app.js`
